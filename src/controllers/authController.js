@@ -3,9 +3,11 @@ const { createToken } = require('../utils/jwt.js');
 const crypto = require('crypto');
 
 const login = async (req, res, next) => {
-  const { email, password } = req.body;
-
+  console.log(req.body);
   try {
+    const { email, password } = req.body;
+    if (!email || !password) throw new Error('Email y password son requeridos');
+
     // 1 check if email exists
     const user = await models.User.scope('withSecretColumns').findOne({
       where: { email: email },

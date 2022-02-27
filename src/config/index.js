@@ -10,5 +10,7 @@ const config = {
   jwt_secret: process.env.JWT_SECRET,
   app_host: process.env.APP_HOST || 'localhost',
   app_port: process.env.APP_PORT || 8000,
+  sendgrid_key: process.env.SENDGRID_KEY,
+  sendgrid_verified: process.env.SENDGRID_VERIFIED, //verified sender
 };
 module.exports = config;

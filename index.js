@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
 
+const config = require('./src/config');
 const handleError = require('./src/middlewares/handleError');
 const apiRoutes = require('./src/routes');
+
+app.use(express.json());
 
 app.use('/api/v1', apiRoutes);
 app.get('*', function (_, res) {
@@ -10,6 +13,6 @@ app.get('*', function (_, res) {
 });
 app.use(handleError);
 
-app.listen(8085, () => {
-  console.log(`🧤 Server en http://localhost:8085/api/v1`);
+app.listen(config.app_port, () => {
+  console.log(`🧤 Server en http://${config.app_host}:${config.app_port}/api/v1`);
 });

@@ -1,6 +1,8 @@
 const { models } = require('../config/sequelize.js');
 const { createToken } = require('../utils/jwt.js');
 const crypto = require('crypto');
+const config = require('../config/');
+const sendMail = require('../utils/sendMail.js');
 
 const login = async (req, res, next) => {
   console.log(req.body);
@@ -45,9 +47,26 @@ const register = async (req, res, next) => {
     };
     const user = await models.User.create(dataUser);
 
-    // TODO: send welcome email with SendGrid
+    if (user) {
+      const urlVerify = `http://${config.app_host}:${config.app_port}/api/v1/auth/verify/${user.verifyToken}`;
+      const msg = {
+        subject: '👋 Bienvenido a nuestra Comunidad',
+        html:
+          'Gracias por registrarte y tu interes en nuestra comunidad, para verificar tu cuenta puedes hacer click en el siguiente enlace: <a href="' +
+          urlVerify +
+          '">Verificar Email</a>',
+      };
+      const sending = await sendMail(user.email, msg, next);
+      const response =
+        sending[0].statusCode === 202
+          ? 'Revisa tu correo, enviamos un mail de Bienvenida'
+          : '';
 
-    res.status(201).json({ message: 'Registrado Correctamente', user });
+      res.status(201).json({
+        message: `Registrado Correctamente${', ' + response}`,
+        user,
+      });
+    }
   } catch (error) {
     next(error);
   }
@@ -64,7 +83,13 @@ const verifyEmail = async (req, res, next) => {
     verifyUser.isVerified = true;
     await verifyUser.save();
 
-    res.json({ message: 'Cuenta/Email Verificado', user: verifyUser });
+    res.json({
+      message: 'Cuenta/Email Verificado',
+      user: {
+        name: verifyUser.name,
+        email: verifyUser.email,
+      },
+    });
   } catch (error) {
     next(error);
   }
@@ -82,12 +107,26 @@ const forgetPass = async (req, res, next) => {
     user.verifyToken = crypto.randomBytes(24).toString('hex');
     await user.save();
 
-    // TODO: send email with url and token
+    if (user) {
+      const urlVerify = `http://${config.app_host}:${config.app_port}/api/v1/auth/lastpw/${user.verifyToken}`;
+      const msg = {
+        subject: '👋 Recuperacion de Acceso a Cuenta',
+        html:
+          'Si estas recibiendo este mail, es porque has iniciado el proceso para recuperar tu cuenta, ingresa en el siguente link para reestablecer el acceso: <a href="' +
+          urlVerify +
+          '">Recuperar Cuenta</a>',
+      };
+      const sending = await sendMail(user.email, msg, next);
 
-    res.json({
-      message: 'Enviamos un mail con las instrucciones para recuperar tu cuenta',
-      user,
-    });
+      if (sending[0].statusCode === 202) {
+        res.json({
+          message: 'Enviamos un mail con las instrucciones para recuperar tu cuenta',
+          user,
+        });
+      } else {
+        throw new Error('Sucedio un error, intentalo mas tarde');
+      }
+    }
   } catch (error) {
     next(error);
   }
@@ -111,7 +150,13 @@ const renewPass = async (req, res, next) => {
     await user.save();
     // or await user.update({ verifyToken: null, password });
 
-    res.json({ message: 'Tu Contraseña ha sido actualizada', user });
+    res.json({
+      message: 'Tu Contraseña ha sido actualizada',
+      user: {
+        name: user.name,
+        email: user.email,
+      },
+    });
   } catch (error) {
     next(error);
   }

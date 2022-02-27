@@ -12,5 +12,5 @@ personajes que la componen y entender en qué películas participa cada quien. P
 - ✅ patron REST para solicitudes http
 - ✅ CRUD para gestionar Personajes y Peliculas/Series
 - ✅ Documentacion con Swagger (TODO: agregar ejemplo request)
-- ⏰ Envio de Email (Registro, Renovacion de Password) por SendGrid
+- ✅ Envio de Emails (Registro Bienvenida, Recuperacion de Password) por SendGrid
 - ⏰ Tests de endpoints (Campos Faltantes o con formato invalido | Acceso a recursos inexistentes en detalles de peliculas o personajes)

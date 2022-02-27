@@ -14,10 +14,7 @@ const sendMail = async (toEmail, message, next) => {
       };
 
       const sending = await sgMail.send(msg);
-
       if (sending) {
-        console.log(sending[0].statusCode);
-        console.log(sending[0].headers);
         return sending;
       }
     }

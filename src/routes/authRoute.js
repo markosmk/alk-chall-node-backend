@@ -9,6 +9,10 @@ const {
   renewPass,
 } = require('../controllers/authController');
 
+// validation
+const validate = require('../middlewares/validate');
+const authValidator = require('../controllers/schemasValidations/authValidator');
+
 /**
  * POST /api/v1/auth/login
  * @summary Inicia sesion de usuario
@@ -27,7 +31,7 @@ const {
  *   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI..."
  * }
  */
-router.post('/login', login);
+router.post('/login', validate(authValidator.login), login);
 
 /**
  * POST /api/v1/auth/register
@@ -47,7 +51,7 @@ router.post('/login', login);
  *   "user": {}
  * }
  */
-router.post('/register', register);
+router.post('/register', validate(authValidator.register), register);
 
 /**
  * GET /api/v1/auth/verify/{token}
@@ -60,20 +64,20 @@ router.get('/verify/:token', verifyEmail);
 
 /**
  * POST /api/v1/auth/forgetpw
- * @summary Registra un nuevo usuario
+ * @summary Genera un token para reestablecer la contrasena
  * @tags auth
- * @param {object} request.body.required - name param description
+ * @param {object} request.body.required - se requiere un `email`
  * @return {object} 201 - success response
  */
-router.post('/forgetpw', forgetPass);
+router.post('/forgetpw', validate(authValidator.forgetPass), forgetPass);
 
 /**
  * POST /api/v1/auth/lastpw/{token}
- * @summary Registra un nuevo usuario
+ * @summary Guarda la nueva contrasena para el usuario
  * @tags auth
- * @param {object} request.body.required - name param description
+ * @param {object} request.body.required - se requiere un `email` y `password`
  * @return {object} 201 - success response
  */
-router.post('/lastpw/:token', renewPass);
+router.post('/lastpw/:token', validate(authValidator.renewPass), renewPass);
 
 module.exports = router;

@@ -9,6 +9,10 @@ const {
   getCharacters,
 } = require('../controllers/characterController');
 
+// validation
+const validate = require('../middlewares/validate');
+const characterValidator = require('../controllers/schemasValidations/characterValidation');
+
 /**
  * Modelo Esquema de Personajes
  * @typedef {object} Character
@@ -51,7 +55,7 @@ router.get('/:id', getOneCharacter);
  * @param {object} request.body.required - Datos Necesarios
  * @return {object} 201 - success response
  */
-router.post('/', createCharacter);
+router.post('/', validate(characterValidator.character), createCharacter);
 
 /**
  * PUT /api/v1/characters/{id}
@@ -62,7 +66,7 @@ router.post('/', createCharacter);
  * @param {object} request.body.required - Datos Necesarios
  * @return {object} 200 - success response
  */
-router.put('/:id', updateCharacter);
+router.put('/:id', validate(characterValidator.character), updateCharacter);
 
 /**
  * DELETE /api/v1/characters/{id}

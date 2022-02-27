@@ -8,6 +8,11 @@ const {
   updateMovie,
   deleteMovie,
 } = require('../controllers/movieController');
+
+// validation
+const validate = require('../middlewares/validate');
+const movieValidator = require('../controllers/schemasValidations/movieValidation');
+
 /**
  * Modelo Esquema de Generos
  * @typedef {object} Gender
@@ -56,7 +61,7 @@ router.get('/:id', getOneMovie);
  * @param {object} request.body.required - Datos Necesarios
  * @return {object} 201 - success response
  */
-router.post('/', createMovie);
+router.post('/', validate(movieValidator.movie), createMovie);
 
 /**
  * PUT /api/v1/movies/{id}
@@ -67,7 +72,7 @@ router.post('/', createMovie);
  * @param {object} request.body.required - Datos Necesarios
  * @return {object} 200 - success response
  */
-router.put('/:id', updateMovie);
+router.put('/:id', validate(movieValidator.movie), updateMovie);
 
 /**
  * DELETE /api/v1/movies/{id}

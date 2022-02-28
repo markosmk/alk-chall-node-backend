@@ -1,0 +1,618 @@
+_type: export
+__export_format: 4
+__export_date: 2022-02-28T16:30:34.139Z
+__export_source: insomnia.desktop.app:v2021.7.2
+resources:
+  - _id: req_ed0e28e4097c42aaa315e0819575fe94
+    parentId: fld_9503b05aec6b497a8edfa439f8517288
+    modified: 1646065342996
+    created: 1645888434149
+    url: "{{ _.url }}/auth/login"
+    name: Login user
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "email@email.com",
+          "password": "12324123"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_5cd04792034b4113841bc79c85cc65e2
+    authentication: {}
+    metaSortKey: -1645888434149
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_9503b05aec6b497a8edfa439f8517288
+    parentId: wrk_57a3461d7ae64ec0b33b07bcc4c56b3e
+    modified: 1645888596929
+    created: 1645888407805
+    name: Auth
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1645888416641
+    _type: request_group
+  - _id: wrk_57a3461d7ae64ec0b33b07bcc4c56b3e
+    parentId: null
+    modified: 1646065072112
+    created: 1645888400913
+    name: Api-Chall-Alkemy
+    description: Api desarrollada para gestionar peliculas y personajes (ambos con
+      relacion), incorporacion de generos, y authenticacion para modificar datos
+    scope: collection
+    _type: workspace
+  - _id: req_ae9bea73c52a4f9fa79c5e0a7f326908
+    parentId: fld_9503b05aec6b497a8edfa439f8517288
+    modified: 1646065040566
+    created: 1645888447537
+    url: "{{ _.url }}/auth/register"
+    name: Register User
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name":"Marciano",
+          "email": "correomal/email.com",
+          "password": "2231321"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_8f820b9bbd264af68bc275852ea3c5b5
+    authentication: {}
+    metaSortKey: -1645888434099
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_53afaf0f7b094f2783bc99448f3eed2b
+    parentId: fld_9503b05aec6b497a8edfa439f8517288
+    modified: 1645921754709
+    created: 1645921717924
+    url: "{{ _.url }}/auth/verify/a543211f5c207e71a851e7ba8f426828cdd2ee9eee7609e0"
+    name: Verify Email
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1645888434049
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_315b8efce68a4bc4a8c49d848844cf30
+    parentId: fld_9503b05aec6b497a8edfa439f8517288
+    modified: 1646064981788
+    created: 1645922745559
+    url: "{{ _.url }}/auth/forgetpw"
+    name: Forget Password
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "email9@email.com"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_02ef20ba14564e81a664578725e64508
+    authentication: {}
+    metaSortKey: -1645888433999
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_916ee8cabe5142bf8e8db88c7ef1a26c
+    parentId: fld_9503b05aec6b497a8edfa439f8517288
+    modified: 1646064980988
+    created: 1645922762615
+    url: "{{ _.url }}/auth/lastpw/82a7ad2fc8d30a6ee6f7eb4eda759fe4d80681fb7e4afe83"
+    name: Renew Password
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "email9@email.com",
+          "password": "123456"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_908b3ad98a5c4e729c830708b64c7e45
+    authentication: {}
+    metaSortKey: -1645888433949
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d2b0c4bb2b8a42468a8701201e4ceab4
+    parentId: fld_11aebdc5caf0455ea8720f4f5ee9f67c
+    modified: 1646064942847
+    created: 1645926436765
+    url: "{{ _.url }}/users/1"
+    name: Get Info User
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1645926436765
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_11aebdc5caf0455ea8720f4f5ee9f67c
+    parentId: wrk_57a3461d7ae64ec0b33b07bcc4c56b3e
+    modified: 1645926448142
+    created: 1645926428405
+    name: Users
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1645888416616
+    _type: request_group
+  - _id: req_8f562d2be87a4fda823f11fc2659888b
+    parentId: fld_42b2f7a723264479b46a18dc45bc64f4
+    modified: 1646064925514
+    created: 1645888471885
+    url: "{{ _.url }}/movies"
+    name: Get All Movies/Series
+    description: |-
+      ### Permite filtrar el contenido por:
+      - name `{string}` (buscar peliculas por titulo)
+      - order `{string}` (ordernar lista por fecha de creacion `ASC o DESC`)
+      - genre `{integer}` (buscar por id de Genero asociado)
+
+      todas las querys son complementarias y pueden usarse juntas
+
+      ### Los datos disponibles son
+      - name
+      - image
+      - dateCreated (Fecha de Creacion)
+    method: GET
+    body: {}
+    parameters:
+      - id: pair_432ad4f9248d40aab6fac996f120ca20
+        name: name
+        value: matri
+        description: ""
+        disabled: false
+      - id: pair_e3f8df8e693d43f6883cfa934803c7cf
+        name: genre
+        value: "1"
+        description: ""
+        disabled: false
+      - id: pair_971da27c34b3497b8bff64b4811c7ef8
+        name: order
+        value: asc
+        description: ""
+        disabled: false
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1645888515982
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_42b2f7a723264479b46a18dc45bc64f4
+    parentId: wrk_57a3461d7ae64ec0b33b07bcc4c56b3e
+    modified: 1645888416591
+    created: 1645888416591
+    name: Movies
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1645888416591
+    _type: request_group
+  - _id: req_a6fa4f1d1ecc4d75b54fa56e48913293
+    parentId: fld_42b2f7a723264479b46a18dc45bc64f4
+    modified: 1646064912166
+    created: 1645888487653
+    url: "{{ _.url }}/movies/3"
+    name: Get one Movie details
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1645888515957
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_cd55e46802744a578c015a48a4ce6cbc
+    parentId: fld_42b2f7a723264479b46a18dc45bc64f4
+    modified: 1646064924791
+    created: 1645888515932
+    url: "{{ _.url }}/movies/"
+    name: Create New Movie
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Bartolomeo",
+          "image": "https:///cas",
+          "score":"4",
+          "dateCreated": "2020-12-04",
+          "GenderId": "2"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_ee68362736704c84b2aef67fed4ac83d
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1645888515932
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_ef5c70a35500434ea19f199e79114c60
+    parentId: fld_42b2f7a723264479b46a18dc45bc64f4
+    modified: 1646064921028
+    created: 1645888533167
+    url: "{{ _.url }}/movies/2"
+    name: "Edit Movie "
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Stranger Things",
+        "score":"5",
+          "image": "https://image.com/image.jpg"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_86ec2edbf9f5457fbc83db44c4e42089
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1645888501792.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_69fa5ea6ebab4ac997e85032a7a7c983
+    parentId: fld_42b2f7a723264479b46a18dc45bc64f4
+    modified: 1646064927642
+    created: 1645888544327
+    url: "{{ _.url }}/movies/3"
+    name: Delete Movie
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1645888494722.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_c3ac2b1b29144d4ab0d4afb93975aacb
+    parentId: fld_38d83524c39340bda54726851000cda3
+    modified: 1646064929568
+    created: 1645888461921
+    url: "{{ _.url }}/characters"
+    name: Get All Characters
+    description: |
+      ### Permite filtrar el contenido por:
+      - age `{integer}` (personaje hasta cierta edad)
+      - weight `{integer}` (personaje hasta cierta peso)
+      - name `{string}` (buscar por nombre de personaje)
+      - movies `{string}` (buscar por id de Pelicula asociada)
+
+      todas las querys son complementarias y pueden usarse juntas
+
+      ### Los datos disponibles son
+      - image
+      - name
+      - Movies `{array}` (solo en el caso de encontrar coincidencias en query)
+    method: GET
+    body: {}
+    parameters:
+      - id: pair_263df4a73dee4fa2906a675afc942b69
+        name: name
+        value: Keanu
+        description: ""
+        disabled: false
+      - id: pair_701f411d48334e8db4a1e69f1bb0ade9
+        name: age
+        value: "46"
+        description: ""
+        disabled: false
+      - id: pair_9b0f137de72e495d857cfe0b14a1820f
+        name: movies
+        value: "3"
+        description: ""
+        disabled: false
+      - id: pair_ebc82e9fdeb345c4914b07f285c9aef0
+        name: weight
+        value: "32"
+        description: ""
+        disabled: false
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1645888503139
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_38d83524c39340bda54726851000cda3
+    parentId: wrk_57a3461d7ae64ec0b33b07bcc4c56b3e
+    modified: 1645888413077
+    created: 1645888413077
+    name: Characters
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1645888413077
+    _type: request_group
+  - _id: req_299a7d62d5294d0f86f44bc2ae94e119
+    parentId: fld_38d83524c39340bda54726851000cda3
+    modified: 1646064930856
+    created: 1645888503089
+    url: "{{ _.url }}/characters/1"
+    name: Get One Character Details
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1645888503089
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b9e1529edb53463db5197954699e788d
+    parentId: fld_38d83524c39340bda54726851000cda3
+    modified: 1646064932180
+    created: 1645888568465
+    url: "{{ _.url }}/characters/"
+    name: Create New Character
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name":"Zendaya hea",
+          "age":"24",
+          "weight":"55",
+          "history":"Lorem asdasda asdasfa asfa sdas",
+          "image": "https://image.com/asdasd.jpg"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_ee68362736704c84b2aef67fed4ac83d
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1645888461871
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_faa2a91a77794fa6b64922a337fd6f7b
+    parentId: fld_38d83524c39340bda54726851000cda3
+    modified: 1646064933209
+    created: 1645888578230
+    url: "{{ _.url }}/characters/1"
+    name: Edit Character
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name":"Keanu Reeves",
+          "age":"45",
+          "weight":"32",
+          "history":"Lorem asdasda asdasfa asfa sdas",
+          "image": "https://image.com/asdasd.jpg"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_86ec2edbf9f5457fbc83db44c4e42089
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1645888461846
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_dfc83261f17f40f59af0d0148c771498
+    parentId: fld_38d83524c39340bda54726851000cda3
+    modified: 1646064934450
+    created: 1645888584668
+    url: "{{ _.url }}/characters/2"
+    name: Delete Character
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1645888461821
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_3e9c05774775cd93a029bca9d778f3400017e3fa
+    parentId: wrk_57a3461d7ae64ec0b33b07bcc4c56b3e
+    modified: 1645907966449
+    created: 1645888400918
+    name: Base Environment
+    data:
+      url: http://localhost:8085/api/v1
+      token: "{% response 'body', 'req_ed0e28e4097c42aaa315e0819575fe94',
+        'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+    dataPropertyOrder:
+      "&":
+        - url
+        - token
+    color: null
+    isPrivate: false
+    metaSortKey: 1645888400918
+    _type: environment
+  - _id: jar_3e9c05774775cd93a029bca9d778f3400017e3fa
+    parentId: wrk_57a3461d7ae64ec0b33b07bcc4c56b3e
+    modified: 1645888400919
+    created: 1645888400919
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_fefedc0bd1674e56be34b87fcd85ede2
+    parentId: wrk_57a3461d7ae64ec0b33b07bcc4c56b3e
+    modified: 1645888400914
+    created: 1645888400914
+    fileName: API Disney Alkemy
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: env_fdc722e01ee749efbf731e651f0acd3b
+    parentId: env_3e9c05774775cd93a029bca9d778f3400017e3fa
+    modified: 1646065086978
+    created: 1645888670042
+    name: Production
+    data:
+      url: http://localhost:8085/api/v1
+      token: "{% response 'body', 'req_ed0e28e4097c42aaa315e0819575fe94',
+        'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+    dataPropertyOrder:
+      "&":
+        - url
+        - token
+    color: "#54d982"
+    isPrivate: false
+    metaSortKey: 1645888670042
+    _type: environment
+  - _id: env_6375f08fb895417b8913390a21693a1e
+    parentId: env_3e9c05774775cd93a029bca9d778f3400017e3fa
+    modified: 1646065092288
+    created: 1645888699130
+    name: Local
+    data:
+      url: http://localhost:8085/api/v1
+      token: "{% response 'body', 'req_ed0e28e4097c42aaa315e0819575fe94',
+        'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+    dataPropertyOrder:
+      "&":
+        - url
+        - token
+    color: "#45b0de"
+    isPrivate: false
+    metaSortKey: 1645888699130
+    _type: environment

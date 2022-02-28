@@ -13,4 +13,6 @@ personajes que la componen y entender en qué películas participa cada quien. P
 - ✅ CRUD para gestionar Personajes y Peliculas/Series
 - ✅ Documentacion con Swagger (TODO: agregar ejemplo request)
 - ✅ Envio de Emails (Registro Bienvenida, Recuperacion de Password) por SendGrid
-- ⏰ Tests de endpoints (Campos Faltantes o con formato invalido | Acceso a recursos inexistentes en detalles de peliculas o personajes)
+- ✅ Tests de endpoints (Campos Faltantes o con formato invalido | Acceso a recursos inexistentes en detalles de peliculas o personajes)
+- ✅ Agregado archivo para import esquema en Insomnia App
+- ✅ [ Ver Docs Online](https://api-doc-alkem.surge.sh/)
